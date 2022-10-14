@@ -68,6 +68,14 @@ class HomeController extends Controller
 	public function solucion4 () : Collection
 	{
 		// Sumar el total de ventas realizadas en Santiago.
+		/*
+		 * FIX
+		 SELECT c.*, SUM(totalt) AS total FROM (SELECT (cotizacion.total) AS totalt FROM `cotizacion_producto`
+		INNER JOIN cotizacion ON cotizacion_producto.idCotizacion= cotizacion.idCotizacion
+		INNER JOIN producto ON cotizacion_producto.idProducto= producto.idProducto
+		WHERE producto.sector = "Santiago" and producto.estado = "VENDIDO"
+		GROUP BY cotizacion_producto.idCotizacion) c;
+		*/
 		$var = Productos::where(['sector' => 'Santiago', 'estado' => 'VENDIDO'])->get();
 		return $var;
 	}

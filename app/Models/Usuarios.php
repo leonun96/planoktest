@@ -12,11 +12,11 @@ class Usuarios extends Model
 	protected $table = "usuario";
 	protected $guarded = [];
 	protected function fullName(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value, $attributes) => $attributes['nombre'].' '.$attributes['apellido'],
-        );
-    }
+	{
+		return Attribute::make(
+			get: fn ($value, $attributes) => $attributes['nombre'].' '.$attributes['apellido'],
+		);
+	}
 	public function perfil ()
 	{
 		return $this->belongsTo(Perfil::class, 'idPerfil', 'idPerfil');
