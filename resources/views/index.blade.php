@@ -1,0 +1,1 @@
+@extends('layouts.layout', ['titulo' => 'Index', 'item' => 1])
